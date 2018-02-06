@@ -30,7 +30,7 @@ class Page(TimeStampedModel, MPTTModel):
     no_index = models.BooleanField(_('ne pas référencer la page ?'), default=False, help_text=_("Supprime la page du référencement Google"))
 
     template_name = models.CharField(_('nom du template'), max_length=70, blank=True, help_text=_("Par défault définie à 'pages/flatpages/{{page.slug}}.htlm' ou 'pages/flatpages/base.htlm'"))
-    sections = models.ManyToManyField('pages.Section', through='PageSectionThroughModel')
+    sections = models.ManyToManyField('django_simple_cms.Section', through='PageSectionThroughModel')
     is_home = models.BooleanField(editable=False, db_index=True, default=False)
 
     def get_absolute_url(self):
@@ -66,8 +66,8 @@ class Section(TimeStampedModel):
 
 
 class PageSectionThroughModel(TimeStampedModel, OrderedModel):
-    page = models.ForeignKey('pages.Page', on_delete=models.CASCADE)
-    section = models.ForeignKey('pages.Section', on_delete=models.CASCADE)
+    page = models.ForeignKey('django_simple_cms.Page', on_delete=models.CASCADE)
+    section = models.ForeignKey('django_simple_cms.Section', on_delete=models.CASCADE)
     order_with_respect_to = 'page'
 
     class Meta:
@@ -76,7 +76,7 @@ class PageSectionThroughModel(TimeStampedModel, OrderedModel):
 
 class SectionContent(TimeStampedModel):
     slug = models.SlugField(_('slug'), max_length=255, help_text=_('Identifiant du contenu dans la section'))
-    section = models.ForeignKey('pages.Section', verbose_name=_('section'), related_name='contents',
+    section = models.ForeignKey('django_simple_cms.Section', verbose_name=_('section'), related_name='contents',
                                 on_delete=models.CASCADE)
 
     objects = InheritanceManager()
