@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load i18n static pages_tags menus_tags %}
+
+{% block header %}
+
+{% endblock header %}
+
+{% block content %}
+  {% for section in section_list %}
+    {% render_page_section section %}
+  {% endfor %}
+{% endblock content %}

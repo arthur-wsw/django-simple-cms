@@ -1,0 +1,10 @@
+{% load static pages_tags %}
+<header class="jumbotron header-img-bg mb-0" style="background-image: url('{% block header_image %}{% static 'images/headers/offers.jpg' %}{% endblock header_image %}')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div>
+      {% get_text_content section 'title' 'Titre' 'h1' as header_title %}<h1>{{ header_title.text }}</h1>
+      {% get_text_content section 'subtitle' 'Subtitle' as header_subtitle %}{% if header_subtitle %}<p>{{ header_subtitle.text }}</p>{% endif %}
+    </div>
+  </div>
+</header>

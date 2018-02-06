@@ -1,0 +1,11 @@
+{% load i18n %}
+<section class="section-breadcrumb">
+  <nav aria-label="breadcrumb">
+    <div class="container">
+      <ol class="breadcrumb px-0">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">{% trans 'Home' %}</a></li>
+        {% block account_breadcrumb_content %}<li class="breadcrumb-item active" aria-current="page">{% trans 'Mon compte' %}</li>{% endblock account_breadcrumb_content %}
+      </ol>
+    </div>
+  </nav>
+</section>
