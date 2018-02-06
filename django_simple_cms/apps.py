@@ -1,6 +1,7 @@
-# -*- coding: utf-8
-from django.apps import AppConfig
+from django.apps import AppConfig as CoreAppConfig
+from django.utils.translation import ugettext_lazy as _
 
 
-class DjangoSimpleCmsConfig(AppConfig):
+class AppConfig(CoreAppConfig):
     name = 'django_simple_cms'
+    verbose_name = _("CMS")
