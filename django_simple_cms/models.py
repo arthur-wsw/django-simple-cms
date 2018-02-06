@@ -87,24 +87,24 @@ class SectionContent(TimeStampedModel):
         unique_together = ('slug', 'section')
 
 
-class HtmlSectionContent(TimeStampedModel):
+class HtmlSectionContent(SectionContent):
     html = models.TextField(_('html'))
 
 
-class TextSectionContent(TimeStampedModel):
+class TextSectionContent(SectionContent):
     text = models.TextField(_('texte'))
 
 
-class ImageSectionContent(TimeStampedModel):
+class ImageSectionContent(SectionContent):
     image = models.ImageField(_('image'))
     alt_text = models.CharField(_('balise alt'), max_length=255, blank=True, null=True)
 
 
-class LinkSectionContent(TimeStampedModel):
+class LinkSectionContent(SectionContent):
     pass
 
 
-class IconSectionContent(TimeStampedModel):
+class IconSectionContent(SectionContent):
     pass
 
 
