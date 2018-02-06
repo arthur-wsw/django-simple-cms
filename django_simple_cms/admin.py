@@ -6,7 +6,7 @@ from modeltranslation.admin import TranslationAdmin
 from mptt.admin import MPTTModelAdmin
 from ordered_model.admin import OrderedTabularInline
 
-from .forms import PageForm
+#from .forms import PageForm
 from .models import Page, Section, PageSectionThroughModel, SectionContent, HtmlSectionContent, TextSectionContent, ImageSectionContent
 
 
@@ -20,7 +20,7 @@ class PageSectionThroughModelInline(OrderedTabularInline):
 
 @admin.register(Page)
 class PageAdmin(MPTTModelAdmin, TranslationAdmin):
-    form = PageForm
+    #form = PageForm
     mptt_level_indent = 0
 
     fieldsets = (
