@@ -173,7 +173,7 @@ def get_text_content(section, content_slug, default=None, comment=None):
             section=section,
             slug=content_slug,
             text=default,
-            comment=comment,
+            #comment=comment,
         )
     return content
 
@@ -187,6 +187,6 @@ def get_image_content(section, content_slug, default=None, comment=None):
             section=section,
             slug=content_slug,
             alt_text=default,
-            comment=comment,
+            #comment=comment,
         )
     return content
